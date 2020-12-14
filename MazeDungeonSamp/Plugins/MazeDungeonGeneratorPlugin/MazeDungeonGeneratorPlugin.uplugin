@@ -1,0 +1,27 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "MazeDungeonGeneratorPlugin",
+	"Description": "Generate Dungeons!",
+	"Category": "Other",
+	"CreatedBy": "Zach Kolansky",
+	"CreatedByURL": "",
+	"DocsURL": "https://docs.google.com/document/d/1kgiY5R9nWiGMEXTcSwRCSEaGBtjUMuTnaYeIPLsCUI0/edit?usp=sharing",
+	"MarketplaceURL": "com.epicgames.launcher: //ue/marketplace/product/25422cd628e74ba19a1e4296fe133311",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"EngineVersion": "4.25.4",
+	"Modules": [
+		{
+			"Name": "MazeDungeonGeneratorPlugin",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Win64", "Win32", "Mac", "IOS", "Android" ]
+		}
+	]
+	     
+}
