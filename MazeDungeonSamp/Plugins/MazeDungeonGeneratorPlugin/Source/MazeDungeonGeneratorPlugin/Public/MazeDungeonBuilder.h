@@ -334,6 +334,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = RandomSeed)
 	FName GlobalRandomSeed = FName("");
 	
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = RoomActor)
+	TMap<FName,AActor*> RoomActors = {};	
+
 
 	/*
 	Where we store all the TSoftObjectPtr from MazeRoomDataTable.

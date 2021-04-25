@@ -72,6 +72,18 @@ void AMazeDungeonBuilder::EndPlay(const EEndPlayReason::Type EndPlayReason)
 		}
 	}
 
+	TArray<FName> RoomActorKey = {};
+	RoomActors.GenerateKeyArray(RoomActorKey);
+	for (FName Name : RoomActorKey)
+	{
+		AActor* R = RoomActors[Name];
+		if(R)
+		{
+			R->Destroy();
+		}
+	}
+	RoomActors.Empty(0);
+
 	RoomScales.Empty();
 	RoomLevelInstancesToScale.Empty();
 
@@ -116,6 +128,21 @@ void AMazeDungeonBuilder::OnConstruction(const FTransform & Transform)
 			Room->SetShouldBeLoaded(false);
 		}
 	}
+
+
+	TArray<FName> RoomActorKey = {};
+	RoomActors.GenerateKeyArray(RoomActorKey);
+	for (FName Name : RoomActorKey)
+	{
+		AActor* R = RoomActors[Name];
+		if(R)
+		{
+			R->Destroy();
+		}
+	}
+	RoomActors.Empty(0);
+
+
 
 	RoomScales.Empty();
 	RoomLevelInstancesToScale.Empty();
@@ -811,7 +838,7 @@ void AMazeDungeonBuilder::GenerateMazeRooms()
 	for (const FMazeRoom& Room : MazeRoomData)
 	{
 		int32 NumberPerRoom = Room.NumberOfCopies;
-		if(!Room.RoomLevel.IsValid())
+		if(!Room.RoomLevel.IsValid() && !Room.bSpawnRoomAsActorInstead)
 		{
 			continue;
 		}
@@ -909,28 +936,70 @@ ULevelStreamingDynamic* AMazeDungeonBuilder::GenerateRoom(const FMazeRoom& Input
 		return nullptr;
 	}
 	
-	bool bValidLevelInstance = false;
-	NewRoom = StreamInRoom(InputRoomData,RoomStartTile,bValidLevelInstance,bDebugWarnings);
 
-	if(!bValidLevelInstance)
+	//TODO TEST
+	if(InputRoomData.bSpawnRoomAsActorInstead && InputRoomData.ActorSoftClass.Get() != NULL)
 	{
+		bool bValidScale = false;
+		FVector RoomScale = InputRoomData.CalculateRoomScale(DungeonTileSize.X,DungeonTileSize.Y,DungeonTileSize.Z,RoomXTiles,RoomYTiles,RoomZTiles,bValidScale);
+
+		//Get the Vector from RoomStartTile
+		const FMazeDungeon* Maze;
+		if(MazeDungeonMap.Contains(RoomStartTile.Z))
+		{
+			Maze = &MazeDungeonMap[RoomStartTile.Z].Maze;
+		}
+		else
+		{
+			return nullptr;
+		}
+	
+		if(!Maze->IsPointInBounds(RoomStartTile.X,RoomStartTile.Y))
+		{
+			return nullptr;
+		}
+		const FMazeCell& StartingCell = Maze->Grid[RoomStartTile.X][RoomStartTile.Y];
+	
+		FVector StartingPoint = CalculateCellStartPoint(StartingCell,RoomStartTile.Z);    
+		AActor* Room = GetWorld()->SpawnActor<AActor>(InputRoomData.ActorSoftClass.Get(),StartingPoint,FRotator(0.0f,0.0f,0.0f));
+		
+		if(Room)
+		{
+			FString NameBase = "ar";
+			FString NameString = FString(*NameBase);
+			NameString.AppendInt(RoomActors.Num());
+			FName FinalName = FName(*NameString);
+			Room->Tags.Add(FinalName);
+			RoomActors.Add(FinalName,Room);
+		}
+			
+
 		return nullptr;
 	}
-
-	bool bValidScale = false;
-	FVector RoomScale = InputRoomData.CalculateRoomScale(DungeonTileSize.X,DungeonTileSize.Y,DungeonTileSize.Z,RoomXTiles,RoomYTiles,RoomZTiles,bValidScale);
-
-	if(bValidScale)
+	else
 	{
-		//Level instances CANNOT DEAL WITH SCALING. NEED TO EXTEND FUNCTIONALITY OF LEVELSCRIPT 
-		//NewInstance->LevelTransform = NewTransform; will only update translation and rotation!
-		RoomLevelInstancesToScale.Add(NewRoom);
-		RoomScales.Add(RoomScale);
+		bool bValidLevelInstance = false;
+		NewRoom = StreamInRoom(InputRoomData,RoomStartTile,bValidLevelInstance,bDebugWarnings);
+
+		if(!bValidLevelInstance)
+		{
+			return nullptr;
+		}
+
+		bool bValidScale = false;
+		FVector RoomScale = InputRoomData.CalculateRoomScale(DungeonTileSize.X,DungeonTileSize.Y,DungeonTileSize.Z,RoomXTiles,RoomYTiles,RoomZTiles,bValidScale);
+
+		if(bValidScale)
+		{
+			//Level instances CANNOT DEAL WITH SCALING. NEED TO EXTEND FUNCTIONALITY OF LEVELSCRIPT 
+			//NewInstance->LevelTransform = NewTransform; will only update translation and rotation!
+			RoomLevelInstancesToScale.Add(NewRoom);
+			RoomScales.Add(RoomScale);
+		}
+		NewRoom->OnLevelShown.AddUniqueDynamic(this,&AMazeDungeonBuilder::RoomInstanceShown); //When the level finally streams in
+		NewRoom->SetShouldBeLoaded(true);
+		bSuccess = true;
 	}
-	NewRoom->OnLevelShown.AddUniqueDynamic(this,&AMazeDungeonBuilder::RoomInstanceShown); //When the level finally streams in
-	NewRoom->SetShouldBeLoaded(true);
-	bSuccess = true;
-	
 	return NewRoom;
 }
 
@@ -1465,10 +1534,18 @@ void AMazeDungeonBuilder::LoadMazeRoomLevels()
 	//Convert TSoftObjectPtr<UWorld> to FSoftObjectPath
 	for (int32 i = 0; i < MazeRoomData.Num(); i++)
 	{
-		TSoftObjectPtr< UWorld > LevelSoftObjectPtr = MazeRoomData[i].RoomLevel;
-		MazeRoomSoftObjectPaths.AddUnique(LevelSoftObjectPtr.ToSoftObjectPath()); //Get the SoftObject Paths
-		MazeLevelsSoftPointers.AddUnique(LevelSoftObjectPtr);
-
+		
+		if(MazeRoomData[i].bSpawnRoomAsActorInstead)
+		{
+			TSoftClassPtr<class AActor> ActorSoftClass = MazeRoomData[i].ActorSoftClass;
+			MazeRoomSoftObjectPaths.AddUnique(ActorSoftClass.ToSoftObjectPath()); //Get the SoftObject Paths
+		}
+		else
+		{
+			TSoftObjectPtr< UWorld > LevelSoftObjectPtr = MazeRoomData[i].RoomLevel;
+			MazeRoomSoftObjectPaths.AddUnique(LevelSoftObjectPtr.ToSoftObjectPath()); //Get the SoftObject Paths
+			MazeLevelsSoftPointers.AddUnique(LevelSoftObjectPtr);
+		}
 		
 	}
 
@@ -1577,6 +1654,26 @@ void AMazeDungeonBuilder::ScaleRoomLevelInstances()
 
 
 	}
+
+	//Want to contine the naming convention here.
+	TArray<FName> RoomActorKey = {};
+	RoomActors.GenerateKeyArray(RoomActorKey);
+	int32 i = 1;
+	for (FName Name : RoomActorKey)
+	{
+		AActor* R = RoomActors[Name];
+		if(R)
+		{
+			FString NameBase = "r";
+			FString NameString = FString(*NameBase);
+			NameString.AppendInt(i+NumLevelToScale);
+			FName FinalName = FName(*NameString);
+			R->Tags.Add(FinalName);
+			i++;
+		}
+	}
+
+
 	OnAllMazeRoomsFinished.Broadcast();
 }
 
