@@ -1,7 +1,7 @@
 {
-	"BuildId": "13144385",
+	"BuildId": "14830424",
 	"Modules": 
 	{
-		"MazeDungeonSamp": "UE4Editor-MazeDungeonSamp-5012.dylib"
+		"MazeDungeonSamp": "UE4Editor-MazeDungeonSamp.dylib"
 	}
 }

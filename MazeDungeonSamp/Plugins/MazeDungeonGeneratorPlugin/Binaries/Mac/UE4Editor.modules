@@ -1,7 +1,7 @@
 {
-	"BuildId": "13144385",
+	"BuildId": "14830424",
 	"Modules": 
 	{
-		"MazeDungeonGeneratorPlugin": "UE4Editor-MazeDungeonGeneratorPlugin-0004.dylib"
+		"MazeDungeonGeneratorPlugin": "UE4Editor-MazeDungeonGeneratorPlugin.dylib"
 	}
 }

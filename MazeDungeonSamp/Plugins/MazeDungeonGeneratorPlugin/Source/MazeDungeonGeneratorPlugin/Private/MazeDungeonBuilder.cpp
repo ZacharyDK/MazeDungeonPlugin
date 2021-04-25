@@ -48,6 +48,97 @@ void AMazeDungeonBuilder::BeginPlay()
 	
 }
 
+
+void AMazeDungeonBuilder::EndPlay(const EEndPlayReason::Type EndPlayReason) 
+{
+	TArray<FName> DoorKey = {};
+	DoorMap.GenerateKeyArray(DoorKey);
+
+	for (FName Name : DoorKey)
+	{
+		AActor* Door = DoorMap[Name];
+		if(Door)
+		{
+			Door->Destroy();
+		}
+
+	}
+	
+	for (ULevelStreamingDynamic* Room : RoomLevelInstancesToScale)
+	{
+		if(Room)
+		{
+			Room->SetShouldBeLoaded(false);
+		}
+	}
+
+	RoomScales.Empty();
+	RoomLevelInstancesToScale.Empty();
+
+
+	RoomMap.Empty(0);
+	DoorMap.Empty(0);
+	MazeRoomData.Empty();
+	StairLevelStreamTiles.Empty();
+
+
+
+	Super::EndPlay(EndPlayReason);
+}
+
+void AMazeDungeonBuilder::OnConstruction(const FTransform & Transform)
+{
+	
+
+
+	MazeRoomData.Empty();
+	StairLevelStreamTiles.Empty();
+
+	TArray<FName> DoorKey = {};
+	DoorMap.GenerateKeyArray(DoorKey);
+	StairLevel.ForceRoomLocations.Empty();
+
+
+	for (FName Name : DoorKey)
+	{
+		AActor* Door = DoorMap[Name];
+		if(Door)
+		{
+			Door->Destroy();
+		}
+
+	}
+		
+	for (ULevelStreamingDynamic* Room : RoomLevelInstancesToScale)
+	{
+		if(Room)
+		{
+			Room->SetShouldBeLoaded(false);
+		}
+	}
+
+	RoomScales.Empty();
+	RoomLevelInstancesToScale.Empty();
+	
+
+	if(bUseOnConstructorToGenerateMazeDungeon)
+	{	
+
+		ReadDataTable();
+		LoadMazeRoomLevels();
+		GenerateMazeDungeon();
+	
+	
+	}
+	else
+	{
+		//OnAsyncLoadMazeRoomDataFinished.RemoveDynamic(this,&AMazeDungeonBuilder::GenerateMazeDungeon); Not working
+	}
+
+	Super::OnConstruction(Transform);
+}
+
+
 // Called every frame
 void AMazeDungeonBuilder::Tick(float DeltaTime)
 {
@@ -181,10 +272,6 @@ void AMazeDungeonBuilder::AddMazeCellToWorld(const FMazeCell& InputCell,int32 ZL
 
 	
 
-	
-
-
-	
 
 	TArray<int32> WallsToDraw = {2,3}; 
 
@@ -298,6 +385,18 @@ void AMazeDungeonBuilder::AddMazeCellToWorld(const FMazeCell& InputCell,int32 ZL
 				if(Door)
 				{
 					Door->SetActorScale3D(DoorScale);
+					NumberOfDoors++;
+					FString NameBase = "d";
+					if(IsWallDungeonEdge(i,InputCell))
+					{
+						NameBase = "a";
+					}
+
+					FString NameString = FString(*NameBase);
+               	 	NameString.AppendInt(NumberOfDoors);
+                	FName FinalName = FName(*NameString);
+					Door->Tags.Add(FinalName);
+					DoorMap.Add(FinalName,Door);
 				}
 			}
 		}
@@ -556,8 +655,10 @@ void AMazeDungeonBuilder::DetermineRoomTileNumber(const FMazeRoom& InputRoomData
 
 void AMazeDungeonBuilder::GenerateMazeDungeon()
 {
+	
 	StairLevelStreamTiles.Empty();
 	bMazeInitializationPassed = InitializeDungeonGeneration();
+	NumberOfDoors = 0;
 
 	if(!bMazeInitializationPassed)
 	{
@@ -630,6 +731,7 @@ void AMazeDungeonBuilder::GenerateMazeDungeon()
 
 void AMazeDungeonBuilder::GenerateMazeDungeonConstructor(bool bOnlySpawnGrid)
 {	
+	NumberOfDoors = 0;
 	StairLevelStreamTiles.Empty();
 	bMazeInitializationPassed = InitializeDungeonGeneration();
 
@@ -1464,6 +1566,13 @@ void AMazeDungeonBuilder::ScaleRoomLevelInstances()
 		{
 			continue;
 		}
+			
+		FString NameBase = "r";
+		FString NameString = FString(*NameBase);
+		NameString.AppendInt(i+1);
+		FName FinalName = FName(*NameString);
+		DungeonScript->Tags.Add(FinalName);
+		RoomMap.Add(FinalName,RoomLevelInstancesToScale[i]);
 		DungeonScript->SetLevelScale(RoomScales[i]);
 
 

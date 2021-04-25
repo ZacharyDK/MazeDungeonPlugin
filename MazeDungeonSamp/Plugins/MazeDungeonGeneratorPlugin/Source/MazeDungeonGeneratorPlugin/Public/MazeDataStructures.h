@@ -536,78 +536,78 @@ struct FMazeRoom : public FTableRowBase
     N cells.
     NOTE: Async load this asset before use.
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Room)
     TSoftObjectPtr< UWorld > RoomLevel;
 
     /*
     From the edge of the room at (0,0,0) to the farthest reaching point on
     the X axis. (X,0,0)
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     float RoomX = 400.0f;
 
     /*
     From the edge of the room at (0,0,0) to the farthest reaching point on
     the Y axis. (0,Y,0)
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Room)
     float RoomY = 400.0f;
 
     /*
     From the edge of the room at (0,0,0) to the farthest reaching point on
     the Z axis. (0,0,Z)
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Room)
     float RoomZ = 400.0f;
 
     /*
     Name denoting the type of room we want the level to respresent
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Room)
     FName RoomType = FName("");
 
     /*
     Number of this RoomLevel we want to create instances of.
     Each instance will have its own number of tiles. 
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSpawning)
     int32 NumberOfCopies = 1;
 
     /*
     Minimum Amount Of Tiles we want to take in the X direction. (Rows)
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     int32 MinimumXTiles = 1;
 
     /*
     Maximum Amount Of Tiles we want to take in the X direction. (Rows)
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     int32 MaximumXTiles = 1;
 
     /*
     Minimum Amount Of Tiles we want to take in the Y direction. (Columns)
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     int32 MinimumYTiles = 1;
 
     /*
     Maximum Amount Of Tiles we want to take in the Y direction. (Columns)
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     int32 MaximumYTiles = 1;
 
 
     /*
     Minimum Amount Of Floors we will use
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     int32 MinimumZTiles = 1;
 
     /*
     Maximum Amount Of Floors we will use
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     int32 MaximumZTiles = 1;
 
 
@@ -615,13 +615,13 @@ struct FMazeRoom : public FTableRowBase
     If this is true, the final transform will take the Dungeon's Z tile height into account. 
     If false, calculations will ignore Z scaling.
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     bool bScaleRoomToUsedFloorHeight = false; 
 
     /*
     If this is true, then rooms can only be 1x1, 2x2, 3x3 etc
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     bool bEnsureRoomIsSquareXY = false;
 
     /*
@@ -635,10 +635,16 @@ struct FMazeRoom : public FTableRowBase
     Ex. (-1,-1,3) means that the given room can be anywhere on fourth floor. (0 is the bottom floor) 
     Note that if a given point isn't valid for a room, the room will try to spawn anywhere. 
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSpawning)
     TArray<FIntVector> ForceRoomLocations = {};
 
-    
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomAsActor)
+    bool bSpawnRoomAsActorInstead = false;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomAsActor)
+  	TSoftClassPtr<class AActor> ActorSoftClass;
+
     FMazeRoom()
     {
 

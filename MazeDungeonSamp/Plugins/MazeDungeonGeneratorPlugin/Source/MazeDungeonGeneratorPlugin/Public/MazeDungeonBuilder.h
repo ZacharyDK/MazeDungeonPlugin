@@ -31,10 +31,13 @@ public:
 	// Sets default values for this actor's properties
 	AMazeDungeonBuilder();
 
+	virtual void OnConstruction(const FTransform & Transform) override;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 public:	
 	// Called every frame
@@ -206,6 +209,26 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = Doors)
 	TSubclassOf<class AActor> DoorClass = NULL;
 
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = Doors)	
+	TMap<FName,AActor*> DoorMap = {};
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = Doors)
+	int32 NumberOfDoors = 0;
+
+
+	/*
+	WARNING: When toggling this value, save an reload the map. 
+	This should handle the loading of the level instances while in the editor.
+	I think I quashed all the level instance duplication bugs. If there are
+	duplicate level instances, you can delete them manually fromt the level
+	menu
+
+	If true: Have the level instanes and doors spawn at constructor time. 
+	If false: Level streaming and door spawning will be done at begin play
+	*/
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = Optimization)
+	bool bUseOnConstructorToGenerateMazeDungeon = false;
 
 
 	/*
@@ -380,11 +403,14 @@ public:
 
 
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient,Category = RoomManagement)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,Category = RoomManagement)
 	TArray<ULevelStreamingDynamic*> RoomLevelInstancesToScale = {};
 
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Transient,Category = RoomManagement)
+	TMap<FName,ULevelStreamingDynamic*> RoomMap = {};
+
 	//Index here matches index in RoomLevelInstancesToScale
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient,Category = RoomManagement)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,Category = RoomManagement)
 	TArray<FVector> RoomScales = {};
 
 
