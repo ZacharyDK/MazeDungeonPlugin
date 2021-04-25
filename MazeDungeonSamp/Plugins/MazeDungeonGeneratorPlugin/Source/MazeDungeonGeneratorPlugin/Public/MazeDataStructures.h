@@ -328,8 +328,8 @@ struct FMazeDungeon
                     {
                         if (Grid[r][c].RoomStatus != ECellRoomStatus::PartOfRoom) //if the proposed adjacent cell hasn't already been marked as a room...
                         {
-                             ChangeCellRoomStatusByIndex(r,c,ECellRoomStatus::AdjacentToRoom);
-                             NumberOfCellsFlaggedAsAdjacent++;
+                            ChangeCellRoomStatusByIndex(r,c,ECellRoomStatus::AdjacentToRoom);
+                            NumberOfCellsFlaggedAsAdjacent++;
                         }
                     }
                     
@@ -493,17 +493,63 @@ struct FMazeDungeon
 
 
     }
-    void SetWallsAdjacentToRoomCellsAsDoor() //Call after generated all rooms
+    void SetWallsAdjacentToRoomCellsAsDoor(bool bGenerateDoorsOnDungeonEdges = true) //Call after generated all rooms
     {
         for (FMazeCell Cell : RoomCells)
         {
+           
             for (int32 n = 0; n < NumberOfSidesPerCell; n++)
             {
                 bool bValidCell = true;
                 FMazeCell AdjCell = GetAdjacentCell(Cell,n,bValidCell);
-                if(!bValidCell || AdjCell.RoomStatus == ECellRoomStatus::PartOfRoom)
+                
+                if( !bValidCell && bGenerateDoorsOnDungeonEdges && (Cell.Row == 0 || Cell.Column == 0 || Cell.Row == Rows-1 ||  Cell.Column == Columns-1) && Cell.RoomStatus == ECellRoomStatus::PartOfRoom )
+                {
+                    //Handle edges of the maze
+                    bool bIsEdge = false;
+                    switch (n)
+                    {
+                        case 0:
+                            if(Cell.Row == Rows-1)
+                            {
+                                bIsEdge = true;
+                            }
+                            break;
+                        case 1:
+                            if(Cell.Column == Columns-1)
+                            {
+                                bIsEdge = true;
+                            }
+                            break;
+                        case 2:
+                            if(Cell.Row == 0)
+                            {
+                                bIsEdge = true;
+                            }
+                            break;
+                        case 3:
+                            if(Cell.Column == 0)
+                            {
+                                bIsEdge = true;
+                            }
+                            break;
+                    }
+
+                    if(bIsEdge)
+                    {   
+                        ChangeCellState(Cell,n,EWallStatus::DungeonDoor,false);
+                    }
+
+
+                    continue;
+                }
+                else if(AdjCell.RoomStatus == ECellRoomStatus::PartOfRoom)
                 {
                     continue; //Don't want a cell outside the grid, Don't want a cell that is part of a room
+                }
+                else if(!bValidCell)
+                {
+                    continue;
                 }
                 
                 
@@ -515,6 +561,8 @@ struct FMazeDungeon
                 
 
             }
+            
+
         }
     }
 

@@ -159,7 +159,7 @@ void AMazeDungeonBuilder::OnConstruction(const FTransform & Transform)
 	}
 	else
 	{
-		//OnAsyncLoadMazeRoomDataFinished.RemoveDynamic(this,&AMazeDungeonBuilder::GenerateMazeDungeon); Not working
+		OnAsyncLoadMazeRoomDataFinished.RemoveDynamic(this,&AMazeDungeonBuilder::GenerateMazeDungeon); 
 	}
 
 	Super::OnConstruction(Transform);
@@ -317,9 +317,9 @@ void AMazeDungeonBuilder::AddMazeCellToWorld(const FMazeCell& InputCell,int32 ZL
 	{
 		EWallStatus WS = InputCell.WallMap[i];
 
-		if(bIsRoomOrPassage)// && WS != EWallStatus::DungeonDoor) 
+		if(bIsRoomOrPassage)	
 		{
-			if(!IsWallDungeonEdge(i,InputCell))
+			if(!IsWallDungeonEdge(i,InputCell) && bPreventRoomsFromSlicingOpenEdgesOfMaze)
 			{
 				continue; //For all rooms, we only want to draw walls that are part of the edge of the Dungeon. Walls that are Doors will be conisdered and dealt with
 			}
@@ -709,7 +709,7 @@ void AMazeDungeonBuilder::GenerateMazeDungeon()
 	{
 		for (int32 f = 0; f < DungeonFloors; f++)
 		{
-			MazeDungeonMap[f].Maze.SetWallsAdjacentToRoomCellsAsDoor();
+			MazeDungeonMap[f].Maze.SetWallsAdjacentToRoomCellsAsDoor(!bPreventRoomsFromSlicingOpenEdgesOfMaze);
 		}
 	}
 	
@@ -838,7 +838,11 @@ void AMazeDungeonBuilder::GenerateMazeRooms()
 	for (const FMazeRoom& Room : MazeRoomData)
 	{
 		int32 NumberPerRoom = Room.NumberOfCopies;
-		if(!Room.RoomLevel.IsValid() && !Room.bSpawnRoomAsActorInstead)
+		if(!Room.RoomLevel.IsValid() && !Room.bSpawnRoomAsActorInstead ) 
+		{
+			continue;
+		}
+		else if(Room.bSpawnRoomAsActorInstead && !Room.ActorSoftClass.IsValid())
 		{
 			continue;
 		}
@@ -937,7 +941,7 @@ ULevelStreamingDynamic* AMazeDungeonBuilder::GenerateRoom(const FMazeRoom& Input
 	}
 	
 
-	//TODO TEST
+
 	if(InputRoomData.bSpawnRoomAsActorInstead && InputRoomData.ActorSoftClass.Get() != NULL)
 	{
 		bool bValidScale = false;
@@ -971,6 +975,7 @@ ULevelStreamingDynamic* AMazeDungeonBuilder::GenerateRoom(const FMazeRoom& Input
 			FName FinalName = FName(*NameString);
 			Room->Tags.Add(FinalName);
 			RoomActors.Add(FinalName,Room);
+			bSuccess = true;
 		}
 			
 
@@ -1310,7 +1315,7 @@ FIntVector AMazeDungeonBuilder::PickRoomStartTile(const int32 RoomRows, const in
 	else
 	{
 		
-		//Can't let rooms start close enough to the upperRight corner, were they can grow out of bounds
+		//Can't let rooms start close enough to the upperRight corner, where they can grow out of bounds
 		//In a 3x3 Dungeon, the only place a 1x1 room can fit is at 1,1
 		//TODO consider floor limits.
 		

@@ -217,6 +217,8 @@ public:
 	int32 NumberOfDoors = 0;
 
 
+
+
 	/*
 	WARNING: When toggling this value, save an reload the map. 
 	This should handle the loading of the level instances while in the editor.
@@ -274,12 +276,19 @@ public:
 	int32 NumberOfRoomLevelInstancesCreated = 0;
 
 
-
+	/*
+	If true, we will attempt to place the pathways to the next floor
+	on the edges of the map. (X,Y = 0 or along DungeonRows-1,DungeonColumns-1)
+	*/
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = MazeBuildOptions)
 	bool bAttemptToPlaceHolesToNextFloorOnEdge = true;
 
-
-	
+	/*
+	If true, the edges of the dungeon will always have walls.
+	If false, we can generate doors on the edges of the dungeon
+	*/
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = MazeBuildOptions)
+	bool bPreventRoomsFromSlicingOpenEdgesOfMaze = true;
 
 
 	/*
