@@ -83,6 +83,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,Category = InstaneComp)
 	UHierarchicalInstancedStaticMeshComponent* FloorMeshes = nullptr;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,Category = InstaneComp)
+	UHierarchicalInstancedStaticMeshComponent* CeilingMeshes = nullptr;
+
 	/*
 	Typical walls
 	*/
@@ -102,13 +105,14 @@ public:
 
 
 
+	UPROPERTY(VisibleAnywhere, Transient, BlueprintReadOnly, Category = Cache)
+	FVector CeilingMeshScale = FVector(1.0f,1.0f,1.0f);
 
-
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = Cache)
+	UPROPERTY(VisibleAnywhere,Transient, BlueprintReadOnly,Category = Cache)
 	FVector DoorScale = FVector(1.0f,1.0f,1.0f);
 
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Cache)
+	UPROPERTY(VisibleAnywhere, Transient, BlueprintReadOnly, Category = Cache)
 	FVector FloorMeshScale = FVector(1.0f,1.0f,1.0f);
 
 	/*
@@ -154,6 +158,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DungeonParameters)
 	int32 DungeonOpenness = 10;
 	
+	
+	/*
+	Used to adjust where the ceiling meshes generate
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DungeonSize)
+	FVector CeilingGlobalVectorOffset = FVector(0.0f,0.0f,0.0f);
+
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DungeonSize)
 	int32 DungeonRows = 5;
 
@@ -165,6 +177,9 @@ public:
 	*/
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DungeonSize)
 	int32 DungeonFloors = 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DungeonSize)
+	FVector CeilingMeshSize = FVector(400.0f,400.0f,20.0f);
 
 	/*
 	Size of a Tile in Ue4 Units.
@@ -185,6 +200,8 @@ public:
 	*/
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DungeonSize)
 	float DungeonFloorZBuffer = 20.0f;
+
+
 
 
 	/*
@@ -213,7 +230,7 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = Doors)	
 	TMap<FName,AActor*> DoorMap = {};
 
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = Doors)
+	UPROPERTY(VisibleAnywhere,Transient, BlueprintReadOnly,Category = Doors)
 	int32 NumberOfDoors = 0;
 
 
@@ -282,6 +299,9 @@ public:
 	*/
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = MazeBuildOptions)
 	bool bAttemptToPlaceHolesToNextFloorOnEdge = true;
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = MazeBuildOptions)
+	bool bBuildCeilingInstances = false;
 
 	/*
 	If true, the edges of the dungeon will always have walls.

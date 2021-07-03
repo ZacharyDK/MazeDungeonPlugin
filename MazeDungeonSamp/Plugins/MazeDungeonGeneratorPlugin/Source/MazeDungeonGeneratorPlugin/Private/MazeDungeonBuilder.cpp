@@ -22,11 +22,13 @@ AMazeDungeonBuilder::AMazeDungeonBuilder()
 	FloorMeshes = CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(TEXT("FloorMeshes"));
 	ClosedWallMeshes = CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(TEXT("ClosedWallMeshes"));
 	OpenWallMeshes = CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(TEXT("OpenWallMeshes"));
+	CeilingMeshes = CreateDefaultSubobject<UHierarchicalInstancedStaticMeshComponent>(TEXT("CeilingMeshes"));
 
 
 	FloorMeshes->bAutoRebuildTreeOnInstanceChanges = false;
 	ClosedWallMeshes->bAutoRebuildTreeOnInstanceChanges = false;
 	OpenWallMeshes->bAutoRebuildTreeOnInstanceChanges = false;
+	CeilingMeshes->bAutoRebuildTreeOnInstanceChanges = false;
 
 	ClearMazeDungeon();
 
@@ -254,6 +256,12 @@ bool AMazeDungeonBuilder::InitializeDungeonGeneration()
 		bInvalidHierarchicalMesh = true;
 	}
 
+	if(!CeilingMeshes->GetStaticMesh() && bBuildCeilingInstances)
+	{
+		UE_LOG(LogTemp, Error, TEXT("CeilingMeshes needs a mesh"))
+		bInvalidHierarchicalMesh = true;
+	}
+
 	if(	bInvalidHierarchicalMesh)
 	{
 		return false;
@@ -275,14 +283,7 @@ void AMazeDungeonBuilder::AddMazeFloorToWorld(const FMazeDungeonFloor& MazeFloor
 			AddMazeCellToWorld(MazeFloor.Maze.Grid[x][y],MazeFloor.FloorNumber,bSpawnDoors);
 		}
 	}
-	
-	/*
-	UpdateComponentTransforms(); //Fixes nav mesh generation issues efficiently
-	FloorMeshes->BuildTreeIfOutdated(true,true); //force update
-	ClosedWallMeshes->BuildTreeIfOutdated(true,true);
-	OpenWallMeshes->BuildTreeIfOutdated(true,true);
-	OnAllMazeCellsFinished.Broadcast();
-	*/
+
 	
 }
 
@@ -295,6 +296,11 @@ void AMazeDungeonBuilder::AddMazeCellToWorld(const FMazeCell& InputCell,int32 ZL
 	if(!bIsRoomOrPassage)
 	{
 		FloorMeshes->AddInstanceWorldSpace(FTransform(FRotator(0.0f,0.0f,0.0f),StartPoint,FloorMeshScale ) ) ;
+
+		if(bBuildCeilingInstances)
+		{
+			CeilingMeshes->AddInstanceWorldSpace(FTransform(FRotator(0.0f,0.0f,0.0f),StartPoint+CeilingGlobalVectorOffset+FVector(0.0f,0.0f,DungeonTileSize.Z),CeilingMeshScale ) ) ;
+		}
 	}
 
 	
@@ -590,6 +596,7 @@ void AMazeDungeonBuilder::ClearMazeDungeon()
 	FloorMeshes->ClearInstances();
 	ClosedWallMeshes->ClearInstances();
 	OpenWallMeshes->ClearInstances();
+	CeilingMeshes->ClearInstances();
 }
 
 void AMazeDungeonBuilder::DetermineRoomTileNumber(const FMazeRoom& InputRoomData, int32& RoomXTiles, int32& RoomYTiles,int32& RoomZTiles  ) const
@@ -735,7 +742,7 @@ void AMazeDungeonBuilder::GenerateMazeDungeon()
 	Dungeon grows on X and Y POSITIVE AXIS
 	*/
 	
-
+	CeilingMeshScale = FVector(DungeonTileSize.X/CeilingMeshSize.X,DungeonTileSize.Y/CeilingMeshSize.Y,1.0f);
 	FloorMeshScale = FVector(DungeonTileSize.X/FloorMeshSize.X,DungeonTileSize.Y/FloorMeshSize.Y,1.0f);
 	WallMeshScale = FVector(DungeonTileSize.X/WallMeshSize.X,1.0f,DungeonTileSize.Z/WallMeshSize.Z);
 	DoorScale = FVector(1.0f,DungeonTileSize.Y/DoorMeshSize.Y,DungeonTileSize.Z/DoorMeshSize.Z);
@@ -750,6 +757,7 @@ void AMazeDungeonBuilder::GenerateMazeDungeon()
 	FloorMeshes->BuildTreeIfOutdated(true,true); //force update
 	ClosedWallMeshes->BuildTreeIfOutdated(true,true);
 	OpenWallMeshes->BuildTreeIfOutdated(true,true);
+	CeilingMeshes->BuildTreeIfOutdated(true,true);
 	OnAllMazeCellsFinished.Broadcast();
 	
 	
@@ -796,7 +804,7 @@ void AMazeDungeonBuilder::GenerateMazeDungeonConstructor(bool bOnlySpawnGrid)
 	Dungeon grows on X and Y POSITIVE AXIS
 	*/
 	
-
+	CeilingMeshScale = FVector(DungeonTileSize.X/CeilingMeshSize.X,DungeonTileSize.Y/CeilingMeshSize.Y,1.0f);
 	FloorMeshScale = FVector(DungeonTileSize.X/FloorMeshSize.X,DungeonTileSize.Y/FloorMeshSize.Y,1.0f);
 	WallMeshScale = FVector(DungeonTileSize.X/WallMeshSize.X,1.0f,DungeonTileSize.Z/WallMeshSize.Z);
 
@@ -810,6 +818,7 @@ void AMazeDungeonBuilder::GenerateMazeDungeonConstructor(bool bOnlySpawnGrid)
 	FloorMeshes->BuildTreeIfOutdated(true,true); //force update
 	ClosedWallMeshes->BuildTreeIfOutdated(true,true);
 	OpenWallMeshes->BuildTreeIfOutdated(true,true);
+	CeilingMeshes->BuildTreeIfOutdated(true,true);
 	OnAllMazeCellsFinished.Broadcast();
 	
 	
