@@ -598,14 +598,14 @@ struct FMazeRoom : public FTableRowBase
     From the edge of the room at (0,0,0) to the farthest reaching point on
     the Y axis. (0,Y,0)
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Room)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     float RoomY = 400.0f;
 
     /*
     From the edge of the room at (0,0,0) to the farthest reaching point on
     the Z axis. (0,0,Z)
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Room)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = RoomSize)
     float RoomZ = 400.0f;
 
     /*

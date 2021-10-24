@@ -180,7 +180,7 @@ bool AMazeDungeonBuilder::InitializeDungeonGeneration()
 
 
 	InitialGenerationLocation = this->GetActorLocation();
-    InitialGenerationRotation = FRotator();//this->GetActorRotation();
+    InitialGenerationRotation = FRotator(0.0f,0.0f,0.0f);//this->GetActorRotation();
 
 	
 	if(bGenerateNewRandomSeeds)

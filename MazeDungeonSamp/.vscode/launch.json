@@ -1,0 +1,104 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "MazeDungeonSamp (Debug)",
+			"request": "launch",
+			"preLaunchTask": "MazeDungeonSamp Mac Debug Build",
+			"program": "/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/Binaries/Mac/UE4-Mac-Debug.app/Contents/MacOS/UE4-Mac-Debug",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "MazeDungeonSamp (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "MazeDungeonSamp Mac DebugGame Build",
+			"program": "/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/Binaries/Mac/UE4-Mac-DebugGame.app/Contents/MacOS/UE4-Mac-DebugGame",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "MazeDungeonSamp (Development)",
+			"request": "launch",
+			"preLaunchTask": "MazeDungeonSamp Mac Development Build",
+			"program": "/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/Binaries/Mac/UE4.app/Contents/MacOS/UE4",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "MazeDungeonSamp (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "MazeDungeonSamp Mac Shipping Build",
+			"program": "/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/Binaries/Mac/UE4-Mac-Shipping.app/Contents/MacOS/UE4-Mac-Shipping",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "MazeDungeonSamp (Test)",
+			"request": "launch",
+			"preLaunchTask": "MazeDungeonSamp Mac Test Build",
+			"program": "/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/Binaries/Mac/UE4-Mac-Test.app/Contents/MacOS/UE4-Mac-Test",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "MazeDungeonSampEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "MazeDungeonSampEditor Mac Debug Build",
+			"program": "/Users/Shared/Epic Games/UE_4.27/Engine/Binaries/Mac/UE4Editor-Mac-Debug.app/Contents/MacOS/UE4Editor-Mac-Debug",
+			"args": [
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject"
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "MazeDungeonSampEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "MazeDungeonSampEditor Mac DebugGame Build",
+			"program": "/Users/Shared/Epic Games/UE_4.27/Engine/Binaries/Mac/UE4Editor-Mac-DebugGame.app/Contents/MacOS/UE4Editor-Mac-DebugGame",
+			"args": [
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject"
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "MazeDungeonSampEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "MazeDungeonSampEditor Mac Development Build",
+			"program": "/Users/Shared/Epic Games/UE_4.27/Engine/Binaries/Mac/UE4Editor.app/Contents/MacOS/UE4Editor",
+			"args": [
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject"
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "mono",
+			"request": "launch",
+			"program": "/Users/Shared/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe",
+			"console": "internalConsole",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "/Users/Shared/Epic Games/UE_4.27"
+		}
+	]
+}

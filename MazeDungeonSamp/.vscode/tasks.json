@@ -1,0 +1,1465 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "MazeDungeonSamp Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Shipping",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Shipping",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Mac Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Shipping",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Test",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Test",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Mac Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Mac Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Mac",
+				"Test",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp IOS Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp IOS DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp IOS Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Shipping",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Shipping",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp IOS Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Shipping",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Test",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Test",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp IOS Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp IOS Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"IOS",
+				"Test",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Debug Cook+Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Debug",
+				"-ServerConfig=Debug",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android Debug Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Debug Cook",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Debug",
+				"-ServerConfig=Debug",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android Debug Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Debug Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Debug",
+				"-ServerConfig=Debug",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-DeploySoToDevice",
+				"-SkipCook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSamp Android Debug Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Android Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android DebugGame Cook+Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=DebugGame",
+				"-ServerConfig=DebugGame",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android DebugGame Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android DebugGame Cook",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=DebugGame",
+				"-ServerConfig=DebugGame",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android DebugGame Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android DebugGame Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=DebugGame",
+				"-ServerConfig=DebugGame",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-DeploySoToDevice",
+				"-SkipCook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSamp Android DebugGame Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Android DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Development Cook+Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Development",
+				"-ServerConfig=Development",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android Development Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Development Cook",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Development",
+				"-ServerConfig=Development",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android Development Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Development Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Development",
+				"-ServerConfig=Development",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-DeploySoToDevice",
+				"-SkipCook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSamp Android Development Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Android Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Shipping",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Shipping Cook+Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Shipping",
+				"-ServerConfig=Shipping",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android Shipping Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Shipping Cook",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Shipping",
+				"-ServerConfig=Shipping",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android Shipping Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Shipping Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Shipping",
+				"-ServerConfig=Shipping",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-DeploySoToDevice",
+				"-SkipCook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSamp Android Shipping Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Shipping",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Android Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Shipping",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Test",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Test Cook+Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Test",
+				"-ServerConfig=Test",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android Test Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Test Cook",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Test",
+				"-ServerConfig=Test",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-Cook"
+			],
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Build",
+				"MazeDungeonSamp Android Test Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Test Deploy",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/RunUAT.sh",
+			"args": [
+				"BuildCookRun",
+				"-ScriptsForProject=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-Project=/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-noP4",
+				"-ClientConfig=Test",
+				"-ServerConfig=Test",
+				"-NoCompileEditor",
+				"-utf8output",
+				"-Platform=Android",
+				"-TargetPlatform=Android",
+				"-ini:Game:[/Script/UnrealEd.ProjectPackagingSettings]:BlueprintNativizationMethod=Disabled",
+				"-Compressed",
+				"-IterativeCooking",
+				"-IterativeDeploy",
+				"-DeploySoToDevice",
+				"-SkipCook",
+				"-Stage",
+				"-Deploy"
+			],
+			"dependsOn": [
+				"MazeDungeonSamp Android Test Build"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Test",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSamp Android Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSamp Android Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSamp",
+				"Android",
+				"Test",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSampEditor Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSampEditor",
+				"Mac",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSampEditor Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSampEditor",
+				"Mac",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSampEditor Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSampEditor",
+				"Mac",
+				"Debug",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSampEditor Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSampEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSampEditor Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSampEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSampEditor Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSampEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSampEditor Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSampEditor",
+				"Mac",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSampEditor Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSampEditor",
+				"Mac",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"MazeDungeonSampEditor Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "MazeDungeonSampEditor Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"MazeDungeonSampEditor",
+				"Mac",
+				"Development",
+				"/Users/zacharykolansky/Documents/UnrealProjectsUnderSourceControl/MazeDungeonPlugin/MazeDungeonSamp/MazeDungeonSamp.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		}
+	]
+}

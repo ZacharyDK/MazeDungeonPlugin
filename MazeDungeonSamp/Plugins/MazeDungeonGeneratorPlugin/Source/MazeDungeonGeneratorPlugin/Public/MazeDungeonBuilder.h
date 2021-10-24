@@ -118,11 +118,11 @@ public:
 	/*
 	Set to GetActorLocation at runtime
 	*/
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Cache)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient, Category = Cache)
 	FVector InitialGenerationLocation = FVector();
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Cache)
-	FRotator InitialGenerationRotation = FRotator();
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient, Category = Cache)
+	FRotator InitialGenerationRotation = FRotator(0.0f,0.0f,0.0f);
 
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Cache)
@@ -144,7 +144,7 @@ public:
 	/*
 	Can we procede to generate the maze
 	*/
-	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = Debug)
+	UPROPERTY(VisibleDefaultsOnly, Transient, BlueprintReadOnly, Category = Debug)
 	bool bMazeInitializationPassed = false;
 
 
@@ -227,7 +227,7 @@ public:
 	TSubclassOf<class AActor> DoorClass = NULL;
 
 
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = Doors)	
+	UPROPERTY(VisibleAnywhere,Transient,BlueprintReadOnly,Category = Doors)	
 	TMap<FName,AActor*> DoorMap = {};
 
 	UPROPERTY(VisibleAnywhere,Transient, BlueprintReadOnly,Category = Doors)
@@ -289,7 +289,7 @@ public:
 	/*
 	Incremented whenever we call StreamInRoom()
 	*/
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = MazeManagement)
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Transient,Category = MazeManagement)
 	int32 NumberOfRoomLevelInstancesCreated = 0;
 
 
@@ -389,7 +389,7 @@ public:
 	/*
 	Has the data in MazeRoomDataTable been read into MazeRoomData?
 	*/
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = RoomManagement)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient,Category = RoomManagement)
 	bool bDataTableRead = false;
 	
 	/*
@@ -402,7 +402,7 @@ public:
 	/*
 	Did we async load the required assets?
 	*/
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = RoomManagement)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient, Category = RoomManagement)
 	bool bRoomDataLoaded = false;
 	
 
@@ -435,14 +435,14 @@ public:
 
 
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,Category = RoomManagement)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,Transient,Category = RoomManagement)
 	TArray<ULevelStreamingDynamic*> RoomLevelInstancesToScale = {};
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Transient,Category = RoomManagement)
 	TMap<FName,ULevelStreamingDynamic*> RoomMap = {};
 
 	//Index here matches index in RoomLevelInstancesToScale
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,Category = RoomManagement)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,Transient,Category = RoomManagement)
 	TArray<FVector> RoomScales = {};
 
 
