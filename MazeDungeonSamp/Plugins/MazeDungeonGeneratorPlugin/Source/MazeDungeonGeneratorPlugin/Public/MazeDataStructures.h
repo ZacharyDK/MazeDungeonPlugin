@@ -30,23 +30,23 @@ struct FMazeCell
     /*
     Visited by the generation algorithm?
     */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Maze)
 	bool bVisited = false;
 
     /*
     Location on the Grid
     */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Maze)
 	int32 Row = 0;
 
     /*
     Location on the Grid
     */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Maze)
 	int32 Column = 0;
 
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Maze)
     ECellRoomStatus RoomStatus = ECellRoomStatus::NotPartOfRoom;
 
     /*
@@ -54,7 +54,7 @@ struct FMazeCell
     Assumed to be an equilateral polygon
     I only support square cells right now. 
     */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Maze)
     int32 NumberOfSides = 4;
 
      /*
@@ -72,7 +72,7 @@ struct FMazeCell
 
 
     //Emptied Upon construction
-    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Maze)
     TMap<int32,EWallStatus> WallMap;
 
 	FMazeCell()
