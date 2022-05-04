@@ -8,7 +8,7 @@
 
 
 UCLASS(Blueprintable, BlueprintType)
-class UDungeonDataSingleton : public UObject,  public FTickerObjectBase
+class UDungeonDataSingleton : public UObject,  public FTSTickerObjectBase
 {
 	GENERATED_BODY()
 

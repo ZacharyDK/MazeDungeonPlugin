@@ -301,11 +301,11 @@ void AMazeDungeonBuilder::AddMazeCellToWorld(const FMazeCell& InputCell,int32 ZL
 
 	if(!bIsRoomOrPassage)
 	{
-		FloorMeshes->AddInstanceWorldSpace(FTransform(FRotator(0.0f,0.0f,0.0f),StartPoint,FloorMeshScale ) ) ;
+		FloorMeshes->AddInstance(FTransform(FRotator(0.0f,0.0f,0.0f),StartPoint,FloorMeshScale ),true ) ;
 
 		if(bBuildCeilingInstances)
 		{
-			CeilingMeshes->AddInstanceWorldSpace(FTransform(FRotator(0.0f,0.0f,0.0f),StartPoint+CeilingGlobalVectorOffset+FVector(0.0f,0.0f,DungeonTileSize.Z),CeilingMeshScale ) ) ;
+			CeilingMeshes->AddInstance(FTransform(FRotator(0.0f,0.0f,0.0f),StartPoint+CeilingGlobalVectorOffset+FVector(0.0f,0.0f,DungeonTileSize.Z),CeilingMeshScale ),true ) ;
 		}
 	}
 
@@ -382,7 +382,7 @@ void AMazeDungeonBuilder::AddMazeCellToWorld(const FMazeCell& InputCell,int32 ZL
 
 		if(ProperWall)
 		{
-			ProperWall->AddInstanceWorldSpace(FTransform(WallRotation,StartPoint+WallOffset,WallMeshScale ) ) ;
+			ProperWall->AddInstance(FTransform(WallRotation,StartPoint+WallOffset,WallMeshScale ),true ) ;
 		}
 	
 
