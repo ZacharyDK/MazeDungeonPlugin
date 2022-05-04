@@ -36,7 +36,7 @@ public:
 	While ULevelStreamingDynamic Objects have a transform, they can only manage translation and rotation. THey can't manage scale. 
 	We extend the functionality of the level by dealing with it here.
 	*/
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent,Category = "DungeonLevelScriptActor")
 	void SetLevelScale(const FVector& NewLevelScale);
 
 

@@ -50,22 +50,22 @@ public:
 	/*
 	Called when all the Level instances representing the room's in the maze have finished streaming in.
 	*/
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable, Category = MazeEvents)
 	FMazeGenerationEvent OnAllMazeRoomsFinished;
 
 	/*
 	Called when all the Level instances representing the room's in the maze have finished streaming in.
 	*/
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable, Category = MazeEvents)
 	FMazeGenerationEvent OnAllMazeCellsFinished;
 
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable, Category = MazeEvents)
 	FMazeGenerationEvent OnMazeGenerationStart;
 
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable, Category = MazeEvents)
 	FMazeLoadEvent OnAsyncLoadMazeRoomDataInitialized;
 
-	UPROPERTY(BlueprintAssignable)
+	UPROPERTY(BlueprintAssignable,Category = MazeEvents)
 	FMazeLoadEvent OnAsyncLoadMazeRoomDataFinished;
 
 
@@ -74,16 +74,16 @@ public:
 	COMPONENTS
 	*/
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly,Category = Root)
 	USceneComponent* MazeRootComponent = nullptr;
 
 	/*
 	Must have the sockets WallForward,WallBackward,WallLeft,WallRight
 	*/
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,Category = InstaneComp)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,Category = InstanceComp)
 	UHierarchicalInstancedStaticMeshComponent* FloorMeshes = nullptr;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,Category = InstaneComp)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,Category = InstanceComp)
 	UHierarchicalInstancedStaticMeshComponent* CeilingMeshes = nullptr;
 
 	/*
