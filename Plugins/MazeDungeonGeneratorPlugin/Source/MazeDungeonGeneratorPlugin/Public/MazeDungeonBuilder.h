@@ -142,7 +142,7 @@ public:
 	bool bDebugWarnings = false;
 
 	/*
-	Can we procede to generate the maze
+	Can we proceed to generate the maze
 	*/
 	UPROPERTY(VisibleDefaultsOnly, Transient, BlueprintReadOnly, Category = Debug)
 	bool bMazeInitializationPassed = false;
@@ -207,7 +207,7 @@ public:
 	/*
 	After we generate the Maze, do we call SetWallsAdjacentToRoomCellsAsDoor()
 	on each floor? (Note this method is described in the FMazeDungeon struct, and its not exposed to BP)
-	NOTE: Tiles must be square for doors to scale properply
+	NOTE: Tiles must be square for doors to scale properly
 	*/
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = Doors)
 	bool bGenerateDoors = false;
@@ -240,7 +240,7 @@ public:
 	WARNING: When toggling this value, save an reload the map. 
 	This should handle the loading of the level instances while in the editor.
 	I think I quashed all the level instance duplication bugs. If there are
-	duplicate level instances, you can delete them manually fromt the level
+	duplicate level instances, you can delete them manually from the level
 	menu
 
 	If true: Have the level instanes and doors spawn at constructor time. 
@@ -447,7 +447,7 @@ public:
 
 
 	/*
-	At what DungeonFilledPercentage do we stop attemptong to spawn additional rooms?
+	At what DungeonFilledPercentage do we stop attempting to spawn additional rooms?
 	Note: We calculate DungeonFilledPercentage AFTER a room is generated.
 	If a DungeonFilledPercentage < SpawnBlockPercentage, then the room is allowed to be created. 
 	Note that DungeonFilledPercentage > SpawnBlockPercentage when the last room raises the DungeonFilledPercentage over 
@@ -467,7 +467,7 @@ public:
 
 	/*
 	I'll find a place to spawn a Room if I can. Note this doesn't guarantee all of your rooms will be spawned.
-	I won't know if I picked a valid place for a paticular room that happens to block the spawning of other rooms.
+	I won't know if I picked a valid place for a particular room that happens to block the spawning of other rooms.
 	I.e this doesn't guarantee I find a valid configuration for all rooms, even if one exists. 
 	Rather, given the space remaining after each room spawn, I will always
 	find a valid space to spawn a room if it exists. 
@@ -553,7 +553,7 @@ public:
 	6) Calculating the scale of the room, by using how many tiles it will take up. We remember this association in the arrays RoomLevelInstancesToScale and RoomScales
 	7) NewRoom->SetShouldBeLoaded(true); 
 
-	bSuccess will be true if we successfully created a leve instance OR if we successfully marked a room when bOnlyMarkRoomsNoStreaming = true.
+	bSuccess will be true if we successfully created a level instance OR if we successfully marked a room when bOnlyMarkRoomsNoStreaming = true.
 	bOnlyMarkRoomsNoStreaming = rooms won't be generated, but marked out on the Maze Grid
 	bIgnoreRoomStatusRestriction = Passed into PickRoomStartTile()
 	*/
