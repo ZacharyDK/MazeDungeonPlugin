@@ -2,13 +2,12 @@
 
 
 #include "MazeDungeonBuilder.h"
-#include "Engine/World.h"
 #include "Runtime/Engine/Classes/Components/HierarchicalInstancedStaticMeshComponent.h"
 #include "Engine/LevelStreamingDynamic.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "DungeonDataSingleton.h"
 #include "DungeonLevelScriptActor.h"
-
+#include "Engine/World.h"
 
 // Sets default values
 AMazeDungeonBuilder::AMazeDungeonBuilder()
