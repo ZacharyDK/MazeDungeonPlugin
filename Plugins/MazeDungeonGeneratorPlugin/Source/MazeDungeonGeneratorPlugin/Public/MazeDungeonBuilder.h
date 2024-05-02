@@ -596,7 +596,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Loading)
 	void LoadMazeRoomLevels();
 
-	UFUNCTION()
+	/*
+	Only call manually if you know how to not use the singleton.
+	*/
+	UFUNCTION(BlueprintCallable,  Category = Loading)
 	void PostLoadMazeLevels();
 
 	//Room Scaling

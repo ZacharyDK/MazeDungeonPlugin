@@ -2,11 +2,13 @@
 
 
 #include "MazeDungeonBuilder.h"
+#include "Engine/World.h"
 #include "Runtime/Engine/Classes/Components/HierarchicalInstancedStaticMeshComponent.h"
 #include "Engine/LevelStreamingDynamic.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "DungeonDataSingleton.h"
 #include "DungeonLevelScriptActor.h"
+
 
 // Sets default values
 AMazeDungeonBuilder::AMazeDungeonBuilder()
@@ -1575,7 +1577,10 @@ void AMazeDungeonBuilder::LoadMazeRoomLevels()
 	}
 
 	//Call PostLoadMazeLevels() after all the given levels have been loaded
-	BaseLoader.RequestAsyncLoad(MazeRoomSoftObjectPaths,FStreamableDelegate::CreateUObject(this,&AMazeDungeonBuilder::PostLoadMazeLevels ));
+	if(&BaseLoader)
+	{
+		BaseLoader.RequestAsyncLoad(MazeRoomSoftObjectPaths,FStreamableDelegate::CreateUObject(this,&AMazeDungeonBuilder::PostLoadMazeLevels ));
+	}
 	
 }
 
